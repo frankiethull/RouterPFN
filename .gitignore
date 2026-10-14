@@ -1,0 +1,24 @@
+# Build + install artifacts (never commit; rebuild from source)
+dist/
+build/
+*.egg-info/
+*.whl
+*.tar.gz
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Secrets / local env
+.env
+
+# Generated corpora (license-clean by construction, but local + large).
+# The bundled seed (src/router_pfn/data/seed-v1.jsonl) IS committed.
+data/raw/
+data/parsed/
+data/splits/
+*.jsonl.tmp

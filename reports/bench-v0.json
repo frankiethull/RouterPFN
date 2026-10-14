@@ -1,0 +1,33 @@
+{
+  "engine": "dummy",
+  "roster": [
+    "weak-local",
+    "strong-frontier"
+  ],
+  "n_train": 70,
+  "n_test": 30,
+  "router_difficulty_acc": 0.2,
+  "rule_difficulty_acc": 0.2,
+  "random_difficulty_acc": 0.23333333333333334,
+  "tiers": {
+    "counts": {
+      "weak-local": 30,
+      "strong-frontier": 0
+    },
+    "fractions": {
+      "weak-local": 1.0,
+      "strong-frontier": 0.0
+    },
+    "escalation_rate": 0.0
+  },
+  "cost_quality": {
+    "router_cost": 1.0,
+    "router_quality": 0.6,
+    "always_strong_cost": 2.0,
+    "always_strong_quality": 0.8,
+    "always_weak_cost": 1.0,
+    "always_weak_quality": 0.6,
+    "cost_saved_vs_strong": 1.0,
+    "quality_retained_vs_strong": -0.20000000000000007
+  }
+}

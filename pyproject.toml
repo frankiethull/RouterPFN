@@ -1,0 +1,53 @@
+[project]
+name = "RouterPFN"
+version = "0.1.0"
+description = "TabPFN-extension adapter that routes LLM questions to the cheapest capable model"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "torch",
+    "requests",
+    "python-dotenv",
+]
+authors = [{name = "frankiethull"}]
+keywords = ["tabular", "tabpfn", "tabicl", "fiorino", "llm-routing", "model-routing"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+urls = {Homepage = "https://github.com/frankiethull/RouterPFN", Repository = "https://github.com/frankiethull/RouterPFN"}
+
+[project.optional-dependencies]
+tabicl = ["tabicl"]
+# Fiorino is not on PyPI yet — it lives at frankiethull/fiorino (python/
+# subdir, dist name `fiorino`). Install via git until the PyPI release,
+# then switch this pin to plain `fiorino`.
+fiorino = ["fiorino @ git+https://github.com/frankiethull/fiorino.git#subdirectory=python"]
+laya = ["laya"]
+all = ["tabicl", "laya", "fiorino @ git+https://github.com/frankiethull/fiorino.git#subdirectory=python"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/router_pfn"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP"]
